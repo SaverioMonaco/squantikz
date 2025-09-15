@@ -44,3 +44,23 @@ The package provides a single macro:
     * main=`<color>` → sets the primary color
     * secondary=`<color>` → sets the secondary color
     * tertiary=`<color>` → sets the tertiary color
+
+## Examples
+
+```latex
+\importmyfig{psg_model}
+```
+![ex1](./assets/psg_model.png)
+
+```latex
+\definecolor{myviolet}{RGB}{150,0,255}
+\importmyfig[main=myviolet]{qag_train}
+```
+![ex2](./assets/qag_train.png)
+
+
+```latex
+\definecolor{myviolet}{RGB}{150,0,255}
+\importmyfig[main=myviolet]{qag_train}
+```
+![ex3](./assets/qag_train.png)
