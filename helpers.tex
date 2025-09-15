@@ -1,0 +1,46 @@
+% Gates
+\newcommand{\gateR}[3]{%
+	\gate[style={fill=#3!30, inner ysep=-1pt}]%
+	{\!\textit{R#1}(\theta_{#2})\!}%
+}
+\newcommand{\gateFx}[2]{%
+	\gate[style={fill=#2!30}]{\mathcal{F}(x_{#1})}%
+}
+\newcommand{\gateUtheta}[1]{%
+	\gate[4, style={fill=#1!30}]{\,\, U(\vec{\theta}) \,\,}
+}
+
+% Slices
+\newcommand{\slicephix}{%
+	\slice[style={draw=gray}, label style={pos=1, anchor=north}]{\raisebox{-.34cm}{$|\phi(\vec{x})\rangle$}}%
+}
+\newcommand{\slicepsithetax}{%
+	\slice[style={draw=gray}, label style={pos=1, anchor=north}]{$|\psi(\vec{\theta}, \vec{x})\rangle$}
+}
+
+% Groups
+\newcommand{\group}[3]{%
+	\gategroup[4,steps=#3,style={dashed,rounded corners,fill=#2!30, inner xsep=2pt},background,
+		label style={label position=above,anchor=north,yshift=+0.3cm}]{#1}%
+}
+
+% Measurements
+\newcommand{\qmeter}[1]{\meter{}\rstick[1, brackets=none]{\,\,#1}}
+% Pixel display size
+\def\pixsize{5pt}
+% White pixel (empty cell)
+\newcommand{\wpix}{%
+	\gate[]{\textcolor{white}{\rule{\pixsize}{\pixsize}}}%
+}
+
+% Black pixel (filled cell)
+\newcommand{\bpix}{%
+	\gate[style={fill=black!80}]{\textcolor{black!80}{\rule{\pixsize}{\pixsize}}}%
+}
+
+% States
+\newcommand{\mdots}{\raisebox{.2cm}{\vdots}}
+
+% Other
+\newcommand{\ostate}{\lstick{$|0\rangle$}}
+\newcommand{\vstate}{\lstick{\mdots}\quad}

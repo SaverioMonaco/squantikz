@@ -1,0 +1,65 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{squantikz}[2025/09/15 Saverio's Quantikz Figures]
+
+% -----------------------------
+% Load TikZ and libraries
+% -----------------------------
+\RequirePackage{tikz}
+\RequirePackage{quantikz}
+\usetikzlibrary{arrows.meta, positioning, calc}
+
+% -----------------------------
+% Other
+% -----------------------------
+\RequirePackage{fp}
+
+% -----------------------------
+% DESY COLORS
+% -----------------------------
+\definecolor{desyorange}{RGB}{243, 142, 0} % #F28E00
+\definecolor{desyblue}{RGB}{0, 166, 235}   % #00A6EB
+\definecolor{desygray}{RGB}{119, 119, 119} % #777777
+
+% -----------------------------
+% OTHER COLORS
+% -----------------------------
+\definecolor{softdark}{RGB}{50, 50, 50} % #323232
+
+% -----------------------------
+% Default colors (can be overridden)
+% -----------------------------
+\newcommand{\maincolor}{desyblue}
+\newcommand{\secondarycolor}{desyorange}
+\newcommand{\tertiarycolor}{desygray}
+
+% -----------------------------
+% Shared TikZ styles
+% -----------------------------
+\tikzset{
+mynode/.style={draw, circle, fill=\maincolor!20, minimum size=8mm},
+myarrow/.style={-{Latex[length=3mm]}, thick, \secondarycolor},
+}
+
+% -----------------------------
+% Key-value system for import
+% -----------------------------
+\RequirePackage{xkeyval}
+
+\makeatletter
+\define@key{squantikz}{main}{\renewcommand{\maincolor}{#1}}
+\define@key{squantikz}{secondary}{\renewcommand{\secondarycolor}{#1}}
+\define@key{squantikz}{tertiary}{\renewcommand{\tertiarycolor}{#1}}
+\makeatother
+
+% -----------------------------
+% \importmyfig command
+% -----------------------------
+\newcommand{\importmyfig}[2][]{%
+	\begingroup
+	% Parse color overrides if given
+	\setkeys{squantikz}{#1}%
+	% Load helpers + figure
+	\input{helpers.tex}%
+	\input{tikz/#2.tex}%
+	\endgroup
+}

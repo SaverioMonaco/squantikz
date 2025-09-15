@@ -1,0 +1,112 @@
+%---------------------------------------------------------
+% Define coordinates and shifts for placement
+%---------------------------------------------------------
+\def\xi{-2.3}   % left x-position for "Random noise / dataset"
+\def\xii{4}     % right x-position for "Fake samples / Encoded dataset"
+\def\xiv{6}     % far-right x-position for MMD block
+\def\yi{0.5}    % top y reference
+\def\ximg{1}    % x-position of central image (qag_small)
+\def\yimg{0}    % y-position of central image (qag_small)
+\def\YSHIFT{-1.6} % vertical offset for "True dataset" and "Encoded dataset"
+
+% Vertical spacing for stacked nodes
+\def\yishift{0.4}
+\FPeval{\yii}{clip(\yi - \yishift)}
+\FPeval{\yiii}{clip(\yii - \yishift)}
+
+% Compute shifted y positions (lower block)
+\FPeval{\Yi}{clip(\YSHIFT + \yi)}
+\FPeval{\Yii}{clip(\YSHIFT + \yii)}
+\FPeval{\Yiii}{clip(\YSHIFT + \yiii)}
+
+%---------------------------------------------------------
+% Arrow macros
+%---------------------------------------------------------
+\newcommand{\harr}[2]{%
+% Short horizontal arrow: (#1,#2) → (#1+0.6,#2)
+\FPeval{\newx}{clip(#1 + 0.6)}%
+\draw[
+-{Triangle[width=5pt,length=4pt]},
+line width=2pt,
+color=softdark
+] (#1, #2) -- (\newx,#2);
+}
+
+\newcommand{\longharr}[2]{%
+% Long horizontal arrow: (#1,#2) → (#1+4.5,#2)
+\FPeval{\newx}{clip(#1 + 4.5)}%
+\draw[
+-{Triangle[width=5pt,length=4pt]},
+line width=2pt,
+color=softdark
+] (#1, #2) -- (\newx,#2);
+}
+
+%---------------------------------------------------------
+% Main TikZ picture
+%---------------------------------------------------------
+\begin{tikzpicture}
+
+	%-------------------------------------------------------
+	% MMD loss block (right side, with curly bracket)
+	%-------------------------------------------------------
+	\draw[-{Triangle[width=0.01pt,length=0.01pt]}, line width=2pt, color=\maincolor!30]
+	(\xiv,-1.25) -- (\xiv, -2.3);
+	\draw[-{Triangle[width=0.01pt,length=0.01pt]}, line width=2pt, color=\maincolor!30]
+	(\xiv,-2.3) -- (\ximg - 0.2, -2.3);
+	\draw[-{Triangle[width=4pt,length=6pt]}, line width=2pt, color=\maincolor!30]
+	(\ximg - 0.2,-2.3) -- (\ximg - 0.2, -1);
+
+	% Labels inside the MMD block
+	\node at (\xiv, -0.7) {\hspace*{-2cm}$\left.\rule{0pt}{1.5cm}\right\}$};
+	\node at (\xiv, -0.5) {MMD:};
+	\node at (\xiv, -0.9) {$\mathcal{L}(\vec{x}, \vec{\theta})$};
+
+	%-------------------------------------------------------
+	% Left side: Random noise input
+	%-------------------------------------------------------
+	\node at (\xi, \yi)   {Random};
+	\node at (\xi, \yii)  {noise};
+	\node at (\xi, \yiii) {$\,\,\{\vec{x}\}_k$};
+
+	%-------------------------------------------------------
+	% Center: QAG circuit (imported small figure)
+	%-------------------------------------------------------
+	\node at (\ximg, \yimg) {
+		\scalebox{.75}{\input{tikz/qag_small}}
+	};
+
+	% Arrow from random noise → QAG
+	\harr{-1.2}{0.1}
+
+	%-------------------------------------------------------
+	% Right side: Fake samples output
+	%-------------------------------------------------------
+	\node at (\xii, \yi)   {Fake};
+	\node at (\xii, \yii)  {samples};
+	\node at (\xii, \yiii) {$\,\,\{\tilde{A}\}_k$};
+
+	% Arrow from QAG → Fake samples
+	\harr{2.5}{0.1}
+
+	%-------------------------------------------------------
+	% Bottom left: True dataset
+	%-------------------------------------------------------
+	\node at (\xi,  \Yi)   {True};
+	\node at (\xi,  \Yii)  {dataset};
+	\node at (\xi,  \Yiii) {$\,\,\{E\}_k$};
+
+	% Arrow from True dataset → Encoding
+	\longharr{-1.4}{-1.6}
+
+	% Label "Encoding" under the arrow
+	\node at (\ximg - 1.2, -1.35) {\color{softdark}\textbf{Encoding}};
+
+	%-------------------------------------------------------
+	% Bottom right: Encoded dataset
+	%-------------------------------------------------------
+	\node at (\xii,  \Yi)   {Encoded};
+	\node at (\xii,  \Yii)  {dataset};
+	\node at (\xii,  \Yiii) {$\,\,\{A\}_k$};
+
+\end{tikzpicture}
