@@ -61,6 +61,8 @@ The package provides a single macro:
 
 ```latex
 \definecolor{myviolet}{RGB}{150,0,255}
-\importmyfig[main=myviolet]{qag_train}
+\definecolor{myblue}{RGB}{50,200,255}
+\definecolor{mygreen}{RGB}{50,250,0}
+\importmyfig[main=myviolet, secondary=myblue, tertiary=mygreen]{qag_model}
 ```
-![ex3](./assets/qag_train.png)
+![ex3](./assets/qag_model.png)
