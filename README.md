@@ -1,4 +1,4 @@
-# squantikz
+# squantikz - Saverio's quantikz
 
 LaTeX package for my modular TikZ/Quantikz figures.  
 Provides shared colors, styles, helper macros, and a simple interface `\importmyfig` to include figures from a central `tikz/` folder with customizable color schemes.
