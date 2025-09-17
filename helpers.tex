@@ -17,6 +17,12 @@
 \newcommand{\slicepsithetax}{%
 	\slice[style={draw=gray}, label style={pos=1, anchor=north}]{$|\psi(\vec{\theta}, \vec{x})\rangle$}
 }
+\newcommand{\slicezero}{%
+	\slice[style={draw=gray}, label style={pos=1, anchor=north}]{$|0\rangle^{\otimes N}$}
+}
+\newcommand{\slicepsiUzero}{%
+	\slice[style={draw=gray}, label style={pos=1, anchor=north}]{\hspace*{2cm}$|\psi(\vec{\theta})\rangle = U(\vec{\theta})|0\rangle^{\otimes N}$}
+}
 
 % Groups
 \newcommand{\group}[3]{%
@@ -44,3 +50,24 @@
 % Other
 \newcommand{\ostate}{\lstick{$|0\rangle$}}
 \newcommand{\vstate}{\lstick{\mdots}\quad}
+
+% Recursive macro to draw nodes from a binary string
+\newcommand{\drawspins}[2]{%
+	\IfStrEq{#1}{}{}{%
+		\StrChar{#1}{1}[\bit]%
+		% Place the current node at x = #2
+		\ifnum\bit=0
+			\node at (#2,-.42) {\input{tikz/spindown}};
+		\else
+			\ifnum\bit=1
+				\node at (#2,.42) {\input{tikz/spinup}};
+			\else
+				\node at (#2,0) {\scalebox{2}{$\cdots$}};
+			\fi
+		\fi
+		% Recurse with the next x-coordinate
+		\StrGobbleLeft{#1}{1}[\rest]%
+		\pgfmathsetmacro{\next}{#2 + 1.5}%
+		\drawspins{\rest}{\next}%
+	}%
+}
