@@ -1,7 +1,7 @@
 # squantikz - Saverio's quantikz
 
 LaTeX package for my modular TikZ/Quantikz figures.  
-Provides shared colors, styles, helper macros, and a simple interface `\importmyfig` to include figures from a central `tikz/` folder with customizable color schemes.
+Provides shared colors, styles, helper macros, and a simple interface `\squimport` to include figures from a central `tikz/` folder with customizable color schemes.
 
 ---
 
@@ -29,7 +29,7 @@ texhash ~/texmf
 The package provides a single macro:
 
 ```latex
-\importmyfig[<options>]{<figure-name>}
+\squimport[<options>]{<figure-name>}
 ```
 * Arguments:
     * `<figure-name>` = filename of a figure inside the tikz/ folder (without .tex).
@@ -48,13 +48,13 @@ The package provides a single macro:
 ## Examples
 
 ```latex
-\importmyfig{psg_model}
+\squimport{psg_model}
 ```
 ![ex1](./assets/psg_model.png)
 
 ```latex
 \definecolor{myviolet}{RGB}{150,0,255}
-\importmyfig[main=myviolet]{qag_train}
+\squimport[main=myviolet]{qag_train}
 ```
 ![ex2](./assets/qag_train.png)
 
@@ -63,6 +63,6 @@ The package provides a single macro:
 \definecolor{myviolet}{RGB}{150,0,255}
 \definecolor{myblue}{RGB}{50,200,255}
 \definecolor{mygreen}{RGB}{50,250,0}
-\importmyfig[main=myviolet, secondary=myblue, tertiary=mygreen]{qag_model}
+\squimport[main=myviolet, secondary=myblue, tertiary=mygreen]{qag_model}
 ```
 ![ex3](./assets/qag_model.png)
