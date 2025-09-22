@@ -1,9 +1,8 @@
 \begin{tikzpicture}[baseline=(c.center)]
-	% down arrow from center
 	\draw[
 	-{Triangle[width=18pt,length=12pt]},
 	line width=10pt,
-	color=softdark!40
+	color=softdark!0
 	] (0, +.5) -- ++(0,+.75); % relative placement
 	\draw[
 	-{Triangle[width=18pt,length=12pt]},
@@ -12,6 +11,6 @@
 	] (0, -.5) -- ++(0,-.75); % relative placement
 
 	% filled circle with thick black outline (center fixed at origin)
-	\node[draw=black, ultra thick, circle, minimum size=1cm, inner sep=0pt, fill=\maincolor!50] (c) at (0,0) {};
+	\node[draw=black, ultra thick, circle, minimum size=1cm, inner sep=0pt, fill=white] (c) at (0,0) {};
 
 \end{tikzpicture}

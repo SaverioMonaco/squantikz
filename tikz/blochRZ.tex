@@ -1,0 +1,15 @@
+\begin{blochsphere}[radius=1 cm, rotation=-10, tilt = 10, opacity=0]
+	\drawBallGrid[style={opacity=0.1}]{30}{30}
+
+	\drawGreatCircle[style={dashed}]{0}{0}{0}
+	\drawRotationLeft[scale=1.3,style={\maincolor}, rotation=45]{0}{100}{0}{140}
+
+	\labelLatLon{up}{90}{0};
+	\labelLatLon{down}{-90}{90};
+	\node[above, anchor = west] at ([xshift = -.2cm, yshift = +.2cm]up) {{\tiny $\left|1\right>$ }};
+	\node[below, anchor = west] at ([xshift = -.2cm, yshift = -.2cm]down) {{\tiny $\left|0\right>$}};
+
+	\labelLatLon[labelmark=false]{d}{15}{90};
+
+	\labelLatLon[labelmark=false]{d2}{5}{78};
+\end{blochsphere}

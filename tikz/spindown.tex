@@ -4,7 +4,12 @@
 	-{Triangle[width=18pt,length=12pt]},
 	line width=10pt,
 	color=softdark!40
-	] (0, 0) -- ++(0,-1.2); % relative placement
+	] (0, -.5) -- ++(0,-.75); % relative placement
+	\draw[
+	-{Triangle[width=18pt,length=12pt]},
+	line width=10pt,
+	color=softdark!0
+	] (0, .5) -- ++(0,.75); % relative placement
 
 	% filled circle with thick black outline (center fixed at origin)
 	\node[draw=black, ultra thick, circle, minimum size=1cm, inner sep=0pt, fill=\secondarycolor!50] (c) at (0,0) {};

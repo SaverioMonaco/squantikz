@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{etoolbox} % for \expandafter trick
+\usepackage[sfdefault]{roboto}  
+\usepackage{squantikz} % for quantum circuit figures
+\usepackage{hyperref} % optional, for clickable TOC
+
+% Run python script to update the list
+\immediate\write18{python showcase.py}
+% Input file list
+\input{files.tex}
+
+% Define showcase command
+\newcommand{\showcase}{%
+  \foreach \filename in \showcasefiles {%
+    \subsection*{\filename} % Make each file a subsection
+    \addcontentsline{toc}{subsection}{\filename}
+    ~\squimport{\filename}%
+    \par
+  }%
+}
+
+\title{Squantikz squimports}
+\author{Saverio Monaco}
+\date{\today}
+
+\begin{document}
+
+\maketitle % Create the title page
+
+\tableofcontents % Generate TOC
+\newpage
+
+\section{Commands}
+\showcase
+
+\end{document}
+
