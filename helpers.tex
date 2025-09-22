@@ -60,10 +60,10 @@
 		\StrChar{#1}{1}[\bit]%
 		% Place the current node at x = #2
 		\ifnum\bit=0
-			\node at (#2,-.45) {\input{tikz/spindown}};
+			\node at (#2,0) {\input{tikz/spindown}};
 		\else
 			\ifnum\bit=1
-				\node at (#2,.45) {\input{tikz/spinup}};
+				\node at (#2,0) {\input{tikz/spinup}};
 			\else
 				\node at (#2,0) {\scalebox{2}{$\cdots$}};
 			\fi
