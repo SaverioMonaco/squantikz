@@ -28,7 +28,7 @@
 \draw[
 -{Triangle[width=5pt,length=4pt]},
 line width=2pt,
-color=softdark
+color=\tertiarycolor
 ] (#1, #2) -- (\newx,#2);
 }
 
@@ -38,7 +38,7 @@ color=softdark
 \draw[
 -{Triangle[width=5pt,length=4pt]},
 line width=2pt,
-color=softdark
+color=\tertiarycolor
 ] (#1, #2) -- (\newx,#2);
 }
 
@@ -50,11 +50,11 @@ color=softdark
 	%-------------------------------------------------------
 	% MMD loss block (right side, with curly bracket)
 	%-------------------------------------------------------
-	\draw[-{Triangle[width=0.01pt,length=0.01pt]}, line width=2pt, color=\maincolor!30]
+	\draw[-{Triangle[width=0.01pt,length=0.01pt]}, line width=2pt, color=\secondarycolor]
 	(\xiv,-1.25) -- (\xiv, -2.3);
-	\draw[-{Triangle[width=0.01pt,length=0.01pt]}, line width=2pt, color=\maincolor!30]
+	\draw[-{Triangle[width=0.01pt,length=0.01pt]}, line width=2pt, color=\secondarycolor]
 	(\xiv,-2.3) -- (\ximg - 0.2, -2.3);
-	\draw[-{Triangle[width=4pt,length=6pt]}, line width=2pt, color=\maincolor!30]
+	\draw[-{Triangle[width=4pt,length=6pt]}, line width=2pt, color=\secondarycolor]
 	(\ximg - 0.2,-2.3) -- (\ximg - 0.2, -1);
 
 	% Labels inside the MMD block
@@ -67,7 +67,7 @@ color=softdark
 	%-------------------------------------------------------
 	\node at (\xi, \yi)   {Random};
 	\node at (\xi, \yii)  {noise};
-	\node at (\xi, \yiii) {$\,\,\{\vec{x}\}_k$};
+	\node at (\xi, \yiii) {$\,\,\{\vec{x}_k\}$};
 
 	%-------------------------------------------------------
 	% Center: QAG circuit (imported small figure)
@@ -84,7 +84,7 @@ color=softdark
 	%-------------------------------------------------------
 	\node at (\xii, \yi)   {Fake};
 	\node at (\xii, \yii)  {samples};
-	\node at (\xii, \yiii) {$\,\,\{\tilde{A}\}_k$};
+	\node at (\xii, \yiii) {$\,\,\{\tilde{A}_k\}$};
 
 	% Arrow from QAG → Fake samples
 	\harr{2.5}{0.1}
@@ -94,19 +94,19 @@ color=softdark
 	%-------------------------------------------------------
 	\node at (\xi,  \Yi)   {True};
 	\node at (\xi,  \Yii)  {dataset};
-	\node at (\xi,  \Yiii) {$\,\,\{E\}_k$};
+	\node at (\xi,  \Yiii) {$\,\,\{E_k\}$};
 
 	% Arrow from True dataset → Encoding
 	\longharr{-1.4}{-1.6}
 
 	% Label "Encoding" under the arrow
-	\node at (\ximg - 1.2, -1.35) {\color{softdark}\textbf{Encoding}};
+	\node at (\ximg - 1.2, -1.35) {\color{\tertiarycolor}\textbf{Encoding}};
 
 	%-------------------------------------------------------
 	% Bottom right: Encoded dataset
 	%-------------------------------------------------------
 	\node at (\xii,  \Yi)   {Encoded};
 	\node at (\xii,  \Yii)  {dataset};
-	\node at (\xii,  \Yiii) {$\,\,\{A\}_k$};
+	\node at (\xii,  \Yiii) {$\,\,\{A_k\}$};
 
 \end{tikzpicture}

@@ -1,0 +1,42 @@
+\begin{tikzpicture}
+
+	%--------------------------------------------------------------------
+	% Base nodes: anchor + imported image
+	%--------------------------------------------------------------------
+	\node (anc) at (0, 0) {}; % unused anchor node
+	\node (img) at (0.1, 0) {\input{tikz/qml}}; % imported figure
+
+	%--------------------------------------------------------------------
+	% State preparation
+	%--------------------------------------------------------------------
+	\node[align=flush left, text width=2cm] at (-4,0) {
+		\color{\tertiarycolor}\textbf{$|0\rangle$ state preparation}
+	};
+	\node[align=flush left, text width=2cm] at (-2,0) {
+		\color{\tertiarycolor}
+		$\begin{cases}
+				~ \\~\\~\\~
+			\end{cases}$
+	};
+
+	%--------------------------------------------------------------------
+	% Labels for circuit blocks
+	%--------------------------------------------------------------------
+	\node[align=flush left] at (-0.9,+2.25) {\color{\tertiarycolor}\textbf{Data Encoding unitary}};
+	\draw[
+	-{Triangle[width=3pt,length=4pt]},
+	line width=1.2pt,
+	color=\tertiarycolor
+	] (-0.9, 2) -- (-0.9, 1.35);
+
+	\node[align=flush left] at (+0.7,-2.25)  {\color{\tertiarycolor}\textbf{Parametrized unitary}};
+	\draw[
+	-{Triangle[width=3pt,length=4pt]},
+	line width=1.2pt,
+	color=\tertiarycolor
+	] (.7, -2) -- (.7, -1.35);
+
+	\node (img) at (5, 0) {\input{tikz/meas}}; % imported figure
+	\node (meas) at (5, 1.75) {\color{\tertiarycolor}$\overbrace{\rule{4cm}{0pt}}^\text{\normalsize\textbf{\raisebox{.2cm}{Measurements}}}$};
+
+\end{tikzpicture}
