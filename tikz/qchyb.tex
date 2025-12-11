@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+	\node at (3, 2) {\color{softdark} $\overbrace{\rule{3.2cm}{0pt}}^\text{measurements}$};
+	\node (img) at (0, 0) {\input{tikz/qcimg}}; % imported figure
+
+	% Rectangle only
+	\node[draw=black, fill=\tertiarycolor, rounded corners=1pt,
+		minimum width=1.5cm, minimum height=3cm]
+	(decoder) at (5, -3) {$\mathcal{D}(\vec\alpha)$};
+
+	\node[draw=black!50, rounded corners=1pt,
+		minimum width=3.325cm, minimum height=2.4cm]
+	(measbox) at (3.05, .45) {};
+
+	% Text below rectangle
+	\node[below=2pt of decoder] {classical decoder};
+
+	\draw[black!50] (measbox.north west) -- (decoder.north west);
+	\draw[black!50] (measbox.north east) -- (decoder.north east);
+	\draw[black!50] (measbox.south west) -- (decoder.south west);
+	\draw[black!50] (measbox.south east) -- ([xshift=-.7cm]decoder.north east);
+\end{tikzpicture}

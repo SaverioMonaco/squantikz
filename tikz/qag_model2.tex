@@ -1,0 +1,72 @@
+\begin{tikzpicture}
+
+	%--------------------------------------------------------------------
+	% Base nodes: anchor + imported image
+	%--------------------------------------------------------------------
+	\node (anc) at (0, 0) {}; % unused anchor node
+	\node (img) at (0.1, 0) {\input{tikz/qag}}; % imported figure
+
+	%--------------------------------------------------------------------
+	% Labels for outputs (top right corner)
+	%--------------------------------------------------------------------
+	\node at (2.4, 1.8) {\color{\tertiarycolor!70!softdark}\textbf{Exp. value}};
+	\node at (4.15, 1.8) {\color{\tertiarycolor!70!softdark}\textbf{Energy}};
+
+	%--------------------------------------------------------------------
+	% Decoding bracket + label (below)
+	%--------------------------------------------------------------------
+	\node at (3.4, -1.4) {$\underbrace{\rule{2cm}{0pt}}$};
+	\node at (3.4, -1.8) {\color{\tertiarycolor!70!softdark}\textbf{Decoding}};
+
+	%--------------------------------------------------------------------
+	% Arrow drawing macro
+	% Usage: \myarrow{x}{y}
+	%--------------------------------------------------------------------
+	\newcommand{\myarrow}[2]{%
+	\def\mylength{0.6}%
+	\FPeval{\newx}{clip(#1 + \mylength)}%
+	\draw[
+	-{Triangle[width=5pt,length=4pt]},
+	line width=2pt,
+	color=softdark
+	] (#1,#2) -- (\newx,#2);
+	}
+
+	%--------------------------------------------------------------------
+	% Arrow placements (parameterized coordinates)
+	%--------------------------------------------------------------------
+	\def\xi   {1.25} % left x
+	\def\xii  {3.0}  % right x
+	\def\yi   { 1.0}
+	\def\yii  { 0.4}
+	\def\yiii {-0.8}
+
+	\myarrow{\xi}{\yi}
+	\myarrow{\xi}{\yii}
+	\myarrow{\xi}{\yiii}
+	\myarrow{\xii}{\yi}
+	\myarrow{\xii}{\yii}
+	\myarrow{\xii}{\yiii}
+
+	%--------------------------------------------------------------------
+	% Labels for circuit blocks (bottom)
+	%--------------------------------------------------------------------
+	% \node[align=flush left] at (-2.75,-2.3) {\color{\tertiarycolor!70!softdark}\textbf{Randomizing unitary}};
+	% \node[align=flush left] at (-0.5,-2.8)  {\color{\tertiarycolor!70!softdark}\textbf{Parametrized unitary}};
+
+	%--------------------------------------------------------------------
+	% Vertical arrows pointing upward to circuit blocks
+	%--------------------------------------------------------------------
+	% \draw[
+	% -{Triangle[width=5pt,length=4pt]},
+	% line width=2pt,
+	% color=softdark
+	% ] (-2.45, -2) -- (-2.45, -1.5);
+	%
+	% \draw[
+	% -{Triangle[width=5pt,length=4pt]},
+	% line width=2pt,
+	% color=softdark
+	% ] (-0.75, -2.5) -- (-0.75, -1.5);
+
+\end{tikzpicture}

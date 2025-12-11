@@ -1,0 +1,19 @@
+
+\begin{tikzpicture}
+	\tikzstyle{connection}=[ultra thick,every node/.style={sloped,allow upside down},draw=\edgecolor,opacity=0.7]
+
+	\pic[shift={(0,0,0)}] at (0,0,0)
+	{Box={
+				name=dec_conv1,
+				caption=\hspace*{-.2cm}\raisebox{.5cm}{\mbox{$\mathcal{W}\cdot \vec{\langle Z_a\rangle} + b$}},
+				ylabel=\rotatebox{90}{n. outputs},
+				zlabel=\hspace*{1cm}\mbox{n. observables},
+				fill=\maincolor,
+				height=12,
+				width=1,
+				depth=16
+			}
+	};
+	\node at ([xshift=2cm]dec_conv1-east) {~};
+
+\end{tikzpicture}

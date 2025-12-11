@@ -1,0 +1,68 @@
+\newcommand{\annnispinup}{
+	\begin{tikzpicture}[baseline=(c.center)]
+		% filled circle with thick black outline (center fixed at origin)
+		\node[draw=black, thick, circle, minimum size=.5cm, inner sep=0pt, fill=\maincolor!50] (c) at (0,0) {};
+
+		\draw[
+		-{Triangle[width=10pt,length=8pt]},
+		line width=6pt,
+		color=softdark!40
+		] (0, +.25) -- ++(0,-.5); % relative placement
+
+		\node[draw=black, thick, circle, minimum size=.5cm, inner sep=0pt] (c) at (0,0) {};
+
+	\end{tikzpicture}
+}
+\newcommand{\annnispindown}{
+	\begin{tikzpicture}[baseline=(c.center)]
+		% filled circle with thick black outline (center fixed at origin)
+		\node[draw=black, thick, circle, minimum size=.5cm, inner sep=0pt, fill=\secondarycolor!50] (c) at (0,0) {};
+
+		\draw[
+		-{Triangle[width=10pt,length=8pt]},
+		line width=6pt,
+		color=softdark!40
+		] (0, -.25) -- ++(0,+.5); % relative placement
+
+		\node[draw=black, thick, circle, minimum size=.5cm, inner sep=0pt] (c) at (0,0) {};
+
+	\end{tikzpicture}
+}
+\begin{tikzpicture}[
+	connection/.style={
+	->,
+	line width=4pt,
+	gray!40!white,
+	opacity=1,
+	>={Triangle[length=6, width=6]}
+	},
+	magfield/.style={
+	->,
+	line width=3pt,
+	gray!40!white,
+	opacity=1,
+	>={Triangle[length=6, width=6]}
+	}
+	]
+	\node (spin1) at (0, 0) {\annnispinup};
+	\node (spin2) at (.75, 0) {\annnispindown};
+	\node (spin3) at (1.5, 0) {\annnispinup};
+	\node (cdots) at (2.25, 0) {$\cdots$};
+	\node (spin5) at (3, 0) {\annnispinup};
+
+
+	\draw[connection]
+	([yshift=-.2cm]spin3.north)
+	to[out=100, in=0] ([yshift=.3cm]spin2.north)
+	to[out=180, in=80] ([yshift=-.25cm]spin1.north);
+	\node at ([xshift=1cm, yshift=.75cm]spin2) {$\mathbf{J_2}$};
+
+	\draw[connection]
+	([yshift=+.2cm]spin3.south)
+	to[out=-100, in=0] ([xshift=.375cm, yshift=-.2cm]spin2.south)
+	to[out=180, in=-80] ([xshift=.05cm, yshift=.2cm]spin2.south);
+	\node at ([xshift=1cm, yshift=-.75cm]spin2) {$\mathbf{J_1}$};
+
+	\draw[magfield] (-0.75, 0.5) -- coordinate (mag) ++(0, 0.75);
+	\node at ([xshift=.3cm]mag) {$\mathbf{B}$};
+\end{tikzpicture}

@@ -26,8 +26,8 @@
 % Short horizontal arrow: (#1,#2) → (#1+0.6,#2)
 \FPeval{\newx}{clip(#1 + 0.6)}%
 \draw[
--{Triangle[width=5pt,length=4pt]},
-line width=2pt,
+-{Triangle[width=3pt,length=3pt]},
+line width=1.5pt,
 color=\tertiarycolor
 ] (#1, #2) -- (\newx,#2);
 }
@@ -36,8 +36,8 @@ color=\tertiarycolor
 % Long horizontal arrow: (#1,#2) → (#1+4.5,#2)
 \FPeval{\newx}{clip(#1 + 4.5)}%
 \draw[
--{Triangle[width=5pt,length=4pt]},
-line width=2pt,
+-{Triangle[width=3pt,length=3pt]},
+line width=1.5pt,
 color=\tertiarycolor
 ] (#1, #2) -- (\newx,#2);
 }
@@ -67,7 +67,7 @@ color=\tertiarycolor
 	%-------------------------------------------------------
 	\node at (\xi, \yi)   {Random};
 	\node at (\xi, \yii)  {noise};
-	\node at (\xi, \yiii) {$\,\,\{\vec{x}_k\}$};
+	\node at (\xi, \yiii) {$\,\,\{\vec{x}\}_k$};
 
 	%-------------------------------------------------------
 	% Center: QAG circuit (imported small figure)
@@ -84,7 +84,7 @@ color=\tertiarycolor
 	%-------------------------------------------------------
 	\node at (\xii, \yi)   {Fake};
 	\node at (\xii, \yii)  {samples};
-	\node at (\xii, \yiii) {$\,\,\{\tilde{A}_k\}$};
+	\node at (\xii, \yiii) {$\,\,\{\tilde{A}\}_k$};
 
 	% Arrow from QAG → Fake samples
 	\harr{2.5}{0.1}
@@ -94,19 +94,19 @@ color=\tertiarycolor
 	%-------------------------------------------------------
 	\node at (\xi,  \Yi)   {True};
 	\node at (\xi,  \Yii)  {dataset};
-	\node at (\xi,  \Yiii) {$\,\,\{E_k\}$};
+	\node at (\xi,  \Yiii) {$\,\,\{E\}_k$};
 
 	% Arrow from True dataset → Encoding
 	\longharr{-1.4}{-1.6}
 
 	% Label "Encoding" under the arrow
-	\node at (\ximg - 1.2, -1.35) {\color{\tertiarycolor}\textbf{Encoding}};
+	\node at (\ximg - 1.2, -1.35) {\small\color{\tertiarycolor}Encoding};
 
 	%-------------------------------------------------------
 	% Bottom right: Encoded dataset
 	%-------------------------------------------------------
 	\node at (\xii,  \Yi)   {Encoded};
 	\node at (\xii,  \Yii)  {dataset};
-	\node at (\xii,  \Yiii) {$\,\,\{A_k\}$};
+	\node at (\xii,  \Yiii) {$\,\,\{A\}_k$};
 
 \end{tikzpicture}

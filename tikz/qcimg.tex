@@ -1,0 +1,6 @@
+\begin{quantikz}[row sep={0.6cm,between origins}, wire types={q,q,n,q}]
+	\ostate & \gateFx{1}{\secondarycolor}\slicephix & \gateUtheta{\maincolor}\slicepsithetax & \qmeter{} & [-.5cm] \setwiretype{n} & \bpixbig & [-.5cm] \wpixbig & [-.5cm] \bpixbig & [-.2cm] \cdots & [-.2cm] \bpixbig \\
+	\ostate & \gateFx{2}{\secondarycolor}           & \qw                                    & \qmeter{} & \setwiretype{n}         & \wpixbig & \bpixbig         & \bpixbig         & \cdots         & \wpixbig         \\
+	\vstate & \mdots                                & [-.4cm]                                & \mdots    &                         & \mdots   & \mdots           & \mdots           &                & \mdots           \\
+	\ostate & \gateFx{N}{\secondarycolor}           & \qw                                    & \qmeter{} & \setwiretype{n}         & \wpixbig & \bpixbig         & \wpixbig         & \cdots         & \bpixbig
+\end{quantikz}

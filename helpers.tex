@@ -1,4 +1,8 @@
 % Gates
+\newcommand{\gatexR}[3]{%
+	\gate[style={fill=#3!30, inner ysep=-1pt}]%
+	{\!\textit{R#1}(x_{#2})\!}%
+}
 \newcommand{\gateR}[3]{%
 	\gate[style={fill=#3!30, inner ysep=-1pt}]%
 	{\!\textit{R#1}(\theta_{#2})\!}%
@@ -32,6 +36,9 @@
 \newcommand{\slicegen}[1]{
 	\slice[style={draw=gray}, label style={pos=1, anchor=north}]{#1}
 }
+\newcommand{\slicegenup}[1]{
+	\slice[style={draw=gray}, label style={pos=-.2, anchor=north}]{#1}
+}
 
 % Groups
 \newcommand{\group}[3]{%
@@ -43,6 +50,7 @@
 \newcommand{\qmeter}[1]{\meter{}\rstick[1, brackets=none]{\,\,#1}}
 % Pixel display size
 \def\pixsize{5pt}
+\def\pixsizebig{8pt}
 % White pixel (empty cell)
 \newcommand{\wpix}{%
 	\gate[]{\textcolor{white}{\rule{\pixsize}{\pixsize}}}%
@@ -51,6 +59,16 @@
 % Black pixel (filled cell)
 \newcommand{\bpix}{%
 	\gate[style={fill=black!80}]{\textcolor{black!80}{\rule{\pixsize}{\pixsize}}}%
+}
+
+% White pixel (empty cell)
+\newcommand{\wpixbig}{%
+	\gate[]{\textcolor{white}{\rule{\pixsizebig}{\pixsizebig}}}%
+}
+
+% Black pixel (filled cell)
+\newcommand{\bpixbig}{%
+	\gate[style={fill=black!80}]{\textcolor{black!80}{\rule{\pixsizebig}{\pixsizebig}}}%
 }
 
 % States
@@ -80,3 +98,12 @@
 		\drawspins{\rest}{\next}%
 	}%
 }
+
+% Used by NNs
+\def\edgecolor{black!50}
+\newcommand{\copymidarrow}{\tikz \draw[-Stealth,line width=0.8mm,draw={rgb:blue,4;red,1;green,1;black,3}] (-0.3,0) -- ++(0.3,0);}
+\newcommand{\midarrow}{\tikz \draw[
+-{Triangle[width=6pt,length=8pt]},
+line width=6pt,
+color=\edgecolor
+] (-0.3,0) -- ++(0.3,0);}

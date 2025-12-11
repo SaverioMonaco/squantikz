@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+	% Declare layers
+	\pgfdeclarelayer{background}
+	\pgfsetlayers{background,main}
+
+	\node (mps) at (0, 0) {\input{tikz/mps}};
+	\node[anchor=west] (cir) at ([xshift=.7cm]mps.east) {\input{tikz/brick4}};
+	% background layer
+	\begin{pgfonlayer}{background}
+		\draw[
+		-{Triangle[width=10pt,length=8pt]},
+		line width=6pt,
+		color=\secondarycolor
+		] ([xshift=.2cm]mps.east) -- ([xshift=.1cm]cir.west);
+	\end{pgfonlayer}
+
+	\node (d1) at ([yshift=-.15cm, xshift=2.6cm]cir.south west) {$\underbrace{\rule{2.75cm}{0pt}}_{\text{Depth 1}}$};
+	\node (d1) at ([yshift=-.15cm, xshift=5.5cm]cir.south west) {$\underbrace{\rule{2.75cm}{0pt}}_{\text{Depth 2}}$};
+\end{tikzpicture}
