@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+	\node (qc) at (0, 0) {\input{tikz/qcultrasimple}};
+	\node (sch0) at (qc.north west) {$|0\rangle$};
+	\node (sch1) at (qc.north east) {$|\psi(\theta)\rangle$};
+	\node (hei0) at (qc.south east) {$\langle O \rangle$};
+	\node (hei1) at (qc.south west) {$\langle O'(\theta) \rangle$};
+	k
+	\draw[->, thick, opacity=.5] (sch0) -- (sch1);
+	\draw[->, thick, opacity=.5] (hei0) -- (hei1);
+\end{tikzpicture}

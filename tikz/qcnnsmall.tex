@@ -1,0 +1,8 @@
+\def\qcnnsmallgatewidth{.5cm}
+\def\brickfoursmallgate{\gate[2][\brickfoursmallgatewidth]{}}
+\begin{quantikz}[row sep={0.8cm,between origins}, column sep={.75cm,between origins}]
+	 & \gate[4, style={fill=\maincolor}][\qcnnsmallgatewidth]{} & \gate[4, style={fill=\secondarycolor}][\qcnnsmallgatewidth]{} & [.1cm] \setwiretype{n}                                   & [.1cm]   \\
+	 &                                                          &                                                               & \setwiretype{n}                                          &          \\
+	 &                                                          &                                                               & \gate[2, style={fill=\maincolor}][\qcnnsmallgatewidth]{} & \meter{} \\
+	 &                                                          &                                                               &                                                          & \meter{}
+\end{quantikz}

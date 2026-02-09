@@ -1,0 +1,8 @@
+\def\brickfoursmallgatewidth{.3cm}
+\def\brickfoursmallgate{\gate[2][\brickfoursmallgatewidth]{}}
+\begin{quantikz}[row sep={0.5cm,between origins}, column sep={.5cm,between origins}, background color=\maincolor]
+	\ostate & \brickfoursmallgate &                     &                     & [.0cm]  \brickfoursmallgate &                     &                     & \ldots \\
+	\ostate &                     & \brickfoursmallgate &                     &                             & \brickfoursmallgate &                     & \ldots \\
+	\ostate &                     &                     & \brickfoursmallgate &                             &                     & \brickfoursmallgate & \ldots \\
+	\ostate &                     &                     &                     &                             &                     &                     & \ldots
+\end{quantikz}

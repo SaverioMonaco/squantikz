@@ -1,0 +1,24 @@
+\newcommand{\qcnnconvblock}[1]{\gategroup[#1,steps=4,style={inner xsep=-1pt,fill=green!5}, background]{\sc Convolution}}
+\definecolor{qcnnpoolcol}{rgb}{1.0, 0.22, 0.0}
+\newcommand{\qcnnpoolblock}[1]{\gategroup[#1,steps=1,style={inner xsep=-2pt,fill=qcnnpoolcol!20}, background,label style={label position=above}]{\sc Pooling}}
+\newcommand{\qcnncgate}[2]{\gate[#1,nwires=#2,style={rounded corners=3,fill=green!20}]{C}}
+\newcommand{\qcnncgat}{\gate[1,style={inner xsep=0pt,rounded corners, fill=green!20}]{C}}
+\definecolor{qcnninputcolor}{HTML}{0096FF}
+\newcommand{\qcnninputblock}{\gategroup[6,steps=2,style={inner xsep=1pt, fill=qcnninputcolor!10}, background]{\sc VQE}}
+\newcommand{\qcnninputgate}{\gate[6,nwires={1,2,3,4,5,6},style={inner ysep=+0pt,rounded corners, fill=qcnninputcolor!20}]{|\psi(\kappa,h)\rangle}}
+\definecolor{qcnnrcol}{rgb}{1.0, 0.75, 0.0}
+\newcommand{\qcnnrgate}{\gate[5,style={inner xsep=0pt,rounded corners, fill=qcnnrcol!40}]{R}}
+\newcommand{\qcnnrgat}{\gate[5,nwires={2,4},style={inner xsep=0pt,rounded corners, fill=qcnnrcol!40}]{R}}
+\definecolor{qcnnalizarin}{rgb}{0.82, 0.1, 0.26}
+\newcommand{\pgate}{\gate[style={rounded corners, fill=qcnnalizarin!50}]{P}}
+\definecolor{qcnnfccol}{rgb}{0.09, 0.45, 0.27}
+\newcommand{\qcnnfgate}{\gate[3,nwires=2,style={rounded corners,fill=qcnnfccol!40}]{F}}
+
+\begin{quantikz}[column sep=5pt, row sep={23pt,between origins}]
+	\qcnninputblock & \qcnninputgate & \qw & \qcnnrgate & \qcnncgate{2}{2}\qcnnconvblock{6} & \qw      & \qcnncgat        & \ctrl{1} & \qcnnrgate & \meter{}\qcnnpoolblock{6} & \setwiretype{n}                   &          &                  &          &           &                            &                 &          &                   \\
+	                &                & \qw &            &                                   & \ctrl{1} & \qcnncgate{2}{2} & \targ{}  &            & \pgate\vcw{-1}            & \qcnncgate{3}{2}\qcnnconvblock{5} & \qw      & \qcnncgat        & \ctrl{2} & \qcnnrgat & \meter{} \qcnnpoolblock{5} & \setwiretype{n} &          &                   \\
+	                &                & \qw &            & \qcnncgate{2}{2}                  & \targ{}  &                  & \ctrl{1} &            & \meter{}                  & \setwiretype{n}                   &          &                  &          &           &                            &                 &          &                   \\
+	                &                & \qw &            &                                   & \ctrl{1} & \qcnncgate{2}{2} & \targ{}  &            & \pgate\vcw{-1}            &                                   & \ctrl{2} & \qcnncgate{3}{2} & \targ{}  &           & \pgate\vcw{-2}             & \qcnnfgate      & \meter{} & \rstick[3]{$p_j$} \\
+	                &                & \qw &            & \qcnncgate{2}{2}                  & \targ{}  &                  & \ctrl{1} &            & \meter{}                  & \setwiretype{n}                   &          &                  &          &           &                            &                 &          &                   \\
+	                &                & \qw &            &                                   & \qw      & \qcnncgat        & \targ{}  &            & \pgate\vcw{-1}            & \qcnncgat                         & \targ{}  & \qw              & \qw      & \qw       & \qw                        & \qw             & \meter{} &
+\end{quantikz}

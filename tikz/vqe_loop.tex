@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+	\node (qc) at (0, 0) {
+		\scalebox{.75}{\input{tikz/qcsimple}}
+	};
+	\draw[
+	-{Triangle[width=6pt, length=6pt]},
+	line width=3pt,
+	color=\tertiarycolor!40
+	] ([yshift=.25cm, xshift=-.8cm]qc.east) -- ++(1, 0);
+	\node[anchor=west, align = center, text width= 3cm] (loss) at ([yshift=.25cm, xshift=.5cm]qc.east) {Minimize \mbox{\!$E(\vec{\theta}) = \langle \psi(\vec{\theta}) | \hat{H} | \psi(\vec{\theta}) \rangle$}};
+	\draw[
+	-{Triangle[width=0.1pt, length=0.1pt]},
+	line width=3pt,
+	color=\tertiarycolor!40
+	] (loss.south) -- ++(0, -1.5);
+	\draw[
+	-{Triangle[width=.1pt, length=.1pt]},
+	line width=3pt,
+	color=\tertiarycolor!40
+	] ([yshift=-1.44cm]loss.south) -- ++(-4.975, -0);
+	\draw[
+	-{Triangle[width=6pt, length=6pt]},
+	line width=3pt,
+	color=\tertiarycolor!40
+	] ([xshift=-.65cm, yshift=-.285cm]qc.south) -- ++(0, 1cm);
+	\node[anchor=west, align = center, text width= 3cm] (up) at ([xshift=-2.7cm, yshift=-1.15cm]loss.south) {$\vec\theta_i \to \vec\theta_{i+1}$};
+
+\end{tikzpicture}

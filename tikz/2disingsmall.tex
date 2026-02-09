@@ -53,23 +53,36 @@
 		\node (spin11) at (0, 0) {\spinup};
 		\node (spin21) at ([xshift=1cm]spin11.east) {\spindown};
 		\node (spin31) at ([xshift=1cm]spin21.east) {\spindown};
-		\node (spin41) at ([xshift=1.5cm]spin31.east) {\spinup};
 
-		\draw[magfield] (-1, .5) -- coordinate (mag) ++(0, 0.75);
+		\node (spin12) at ([xshift=-1cm, yshift=-1cm]spin11) {\spindown};
+		\node (spin22) at ([xshift=1cm]spin12.east) {\spinup};
+		\node (spin32) at ([xshift=1cm]spin22.east) {\spinup};
+
+		\node (spin13) at ([xshift=-1cm, yshift=-1cm]spin12) {\spinup};
+		\node (spin23) at ([xshift=1cm]spin13.east) {\spinup};
+		\node (spin33) at ([xshift=1cm]spin23.east) {\spinup};
+
+		\draw[magfield] (2.75, -1.35) -- coordinate (mag) ++(0, 0.75);
 		\node at ([xshift=.3cm]mag) {$\mathbf{h}$};
 
 		\draw[connection]
-		([yshift=+.2cm]spin11) to[out=70, in=110] (spin21);
+		([yshift=+.2cm]spin32) to[out=100, in=70] (spin22);
 		\draw[connection]
-		([yshift=+.2cm]spin11) to[out=-70, in=250] (spin31);
+		([yshift=+.2cm]spin32) to[out=300, in=-10] (spin33);
 
-		\node at ([xshift=.05cm, yshift=-.9cm]spin31) {$\boldsymbol{\kappa}$};
-		\node at ([xshift=.25cm, yshift=.9cm]spin11) {$\mathbf{1}$};
+		\node at ([xshift=-.65cm, yshift=.45cm]spin32) {$\mathbf{J}$};
+		\node at ([xshift=.45cm, yshift=-.9cm]spin32) {$\mathbf{J}$};
 
 	\end{pgfonlayer}
 
 	\begin{pgfonlayer}{background}
 		\draw[gray, line width=0.1pt] (spin11) -- (spin31);
-		\draw[dashed, gray, line width=0.1pt] (spin41) -- (spin31);
+		\draw[gray, line width=0.1pt] (spin12) -- (spin32);
+		\draw[gray, line width=0.1pt] (spin13) -- (spin33);
+
+		\draw[gray, line width=0.1pt] (spin11) -- (spin13);
+		\draw[gray, line width=0.1pt] (spin21) -- (spin23);
+		\draw[gray, line width=0.1pt] (spin31) -- (spin33);
+
 	\end{pgfonlayer}
 \end{tikzpicture}

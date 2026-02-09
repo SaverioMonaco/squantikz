@@ -1,0 +1,17 @@
+\def\autoencodersmallgroup{
+	\gategroup[4,steps=11,style={dashed,rounded
+				corners,fill=\maincolor, inner
+				xsep=2pt},background,label style={label
+				position=below,anchor=north,yshift=-0.2cm}]{}
+}
+\def\autoencodersmallgate{
+	\gate[1][.6cm][.6cm]{}
+}
+
+\def\brickfoursmallgate{\gate[2][\brickfoursmallgatewidth]{}}
+\begin{quantikz}[row sep={0.8cm,between origins}, column sep={.5cm,between origins}]
+	 & \autoencodersmallgate\autoencodersmallgroup & [.1cm]     & \ctrl{1}  & [.1cm] \autoencodersmallgate & [.1cm]     &           & \ctrl{2}  & [.1cm] \autoencodersmallgate &  & [-.5cm] \qw                                 & \\
+	 & \autoencodersmallgate                       & \ctrl{1}   & \targ{-1} & \autoencodersmallgate        & \ctrl{1}   & \targ{2}  &           & \autoencodersmallgate        &  & \setwiretype{n} \rstick{$\langle Z\rangle$} & \\
+	 & \autoencodersmallgate                       & \control{} & \targ{1}  & \autoencodersmallgate        & \control{} &           & \targ{-2} & \autoencodersmallgate        &  & \setwiretype{n} \rstick{$\langle Z\rangle$} & \\
+	 & \autoencodersmallgate                       &            & \ctrl{-1} & \autoencodersmallgate        &            & \ctrl{-2} &           & \autoencodersmallgate        &  & \qw                                         &
+\end{quantikz}
