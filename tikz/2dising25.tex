@@ -1,0 +1,110 @@
+\newcommand{\spindown}{
+	\begin{tikzpicture}[baseline=(c.center)]
+		% filled circle with thick black outline (center fixed at origin)
+		\node[draw=black, thick, circle, minimum size=.5cm, inner sep=0pt, fill=\maincolor!50] (c) at (0,0) {};
+
+		\draw[
+		-{Triangle[width=8pt,length=8pt]},
+		line width=4pt,
+		color=\maincolor!40!gray
+		] (0, +.25) -- ++(0,-.5); % relative placement
+
+		\node[draw=black, thick, circle, minimum size=.5cm, inner sep=0pt] (c) at (0,0) {};
+
+	\end{tikzpicture}
+}
+\newcommand{\spinup}{
+	\begin{tikzpicture}[baseline=(c.center)]
+		% filled circle with thick black outline (center fixed at origin)
+		\node[draw=black, thick, circle, minimum size=.5cm, inner sep=0pt, fill=\secondarycolor!50] (c) at (0,0) {};
+
+		\draw[
+		-{Triangle[width=8pt,length=8pt]},
+		line width=4pt,
+		color=\secondarycolor!40!gray
+		] (0, -.25) -- ++(0,+.5); % relative placement
+
+		\node[draw=black, thick, circle, minimum size=.5cm, inner sep=0pt] (c) at (0,0) {};
+
+	\end{tikzpicture}
+}
+\begin{tikzpicture}[
+	connection/.style={
+	->,
+	line width=2pt,
+	black!40!white,
+	opacity=1,
+	>={Triangle[length=4, width=4]}
+	},
+	magfield/.style={
+	->,
+	line width=2pt,
+	black!40!white,
+	opacity=1,
+	>={Triangle[length=4, width=4]}
+	}
+	]
+	\pgfdeclarelayer{background}
+	\pgfdeclarelayer{main}
+	\pgfdeclarelayer{foreground}
+	\pgfsetlayers{background,main,foreground}
+
+	\begin{pgfonlayer}{main}
+		\node (spin11) at (0, 0) {\spinup};
+		\node (spin21) at ([xshift=1cm]spin11.east) {\spindown};
+		\node (spin31) at ([xshift=1cm]spin21.east) {\spindown};
+		\node (spin41) at ([xshift=1cm]spin31.east) {\spinup};
+		\node (spin51) at ([xshift=1cm]spin41.east) {\spinup};
+		\node (spin12) at ([xshift=-1cm, yshift=-.8cm]spin11) {\spindown};
+		\node (spin22) at ([xshift=1cm]spin12.east) {\spinup};
+		\node (spin32) at ([xshift=1cm]spin22.east) {\spinup};
+		\node (spin42) at ([xshift=1cm]spin32.east) {\spindown};
+		\node (spin52) at ([xshift=1cm]spin42.east) {\spindown};
+		\node (spin13) at ([xshift=-1cm, yshift=-.8cm]spin12) {\spinup};
+		\node (spin23) at ([xshift=1cm]spin13.east) {\spinup};
+		\node (spin33) at ([xshift=1cm]spin23.east) {\spinup};
+		\node (spin43) at ([xshift=1cm]spin33.east) {\spindown};
+		\node (spin53) at ([xshift=1cm]spin43.east) {\spindown};
+		\node (spin14) at ([xshift=-1cm, yshift=-.8cm]spin13) {\spinup};
+		\node (spin24) at ([xshift=1cm]spin14.east) {\spinup};
+		\node (spin34) at ([xshift=1cm]spin24.east) {\spindown};
+		\node (spin44) at ([xshift=1cm]spin34.east) {\spinup};
+		\node (spin54) at ([xshift=1cm]spin44.east) {\spindown};
+		\node (spin15) at ([xshift=-1cm, yshift=-.8cm]spin14) {\spindown};
+		\node (spin25) at ([xshift=1cm]spin15.east) {\spinup};
+		\node (spin35) at ([xshift=1cm]spin25.east) {\spindown};
+		\node (spin45) at ([xshift=1cm]spin35.east) {\spinup};
+		\node (spin55) at ([xshift=1cm]spin45.east) {\spinup};
+
+		\draw[magfield] (-3, -1) -- coordinate (mag) ++(0, 0.75);
+		\node at ([xshift=.3cm]mag) {$\mathbf{h}$};
+
+		\draw[connection]
+		([yshift=+.2cm]spin12) to[out=70, in=110] (spin22);
+		\draw[connection]
+		([yshift=+.2cm]spin12) to[out=150, in=110] (spin13);
+
+		\node at ([xshift=-.75cm, yshift=.5cm]spin12) {$\mathbf{J}$};
+		\node at ([xshift=.25cm, yshift=.9cm]spin12) {$\mathbf{J}$};
+
+	\end{pgfonlayer}
+
+	\begin{pgfonlayer}{background}
+		\draw[gray, line width=0.1pt] (spin11) -- (spin51);
+		\draw[gray, line width=0.1pt] (spin12) -- (spin52);
+		\draw[gray, line width=0.1pt] (spin13) -- (spin53);
+		\draw[gray, line width=0.1pt] (spin14) -- (spin54);
+		\draw[gray, line width=0.1pt] (spin15) -- (spin55);
+
+		\draw[gray, line width=0.1pt] (spin11) -- (spin15);
+		\draw[gray, line width=0.1pt] (spin21) -- (spin25);
+		\draw[gray, line width=0.1pt] (spin31) -- (spin35);
+		\draw[gray, line width=0.1pt] (spin41) -- (spin45);
+		\draw[gray, line width=0.1pt] (spin51) -- (spin55);
+
+		\draw[connection]
+		([yshift=+.2cm]spin12) to[out=150, in=110] (spin13);
+
+
+	\end{pgfonlayer}
+\end{tikzpicture}

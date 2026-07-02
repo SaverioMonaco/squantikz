@@ -1,0 +1,40 @@
+\begin{tikzpicture}
+	\node (qc) at (0, 0) {
+		\scalebox{1}{\input{tikz/prop_U}}
+	};
+	\draw[
+	-{Triangle[width=6pt, length=6pt]},
+	line width=3pt,
+	color=\tertiarycolor!40
+	] ([yshift=.425cm, xshift=-1cm]qc.east) -- ++(1.5, 0);
+
+	\node[anchor=west, align = center, text width= 3cm] (prop) at ([yshift=.7cm, xshift=-1.9cm]qc.east) {\color{\tertiarycolor}\small Propagate};
+
+	\node[anchor=west, align = center, text width= 3cm] (loss) at ([yshift=.25cm, xshift=.5cm]qc.east) {Minimize \mbox{\!$\mathcal{L}(\vec{\theta}) = \sum_i \langle 0 | O'(\vec{\theta}) | 0 \rangle$}};
+
+	\draw[
+	-{Triangle[width=0.1pt, length=0.1pt]},
+	line width=3pt,
+	color=\tertiarycolor!40
+	] ([yshift=.425cm, xshift=4cm]qc.east) -- ++(.5, 0);
+
+	\draw[
+	-{Triangle[width=0.1pt, length=0.1pt]},
+	line width=3pt,
+	color=\tertiarycolor!40
+	] ([yshift=.425cm, xshift=4.45cm]qc.east) -- ++(0, -1.62);
+
+	\draw[
+	-{Triangle[width=.1pt, length=.1pt]},
+	line width=3pt,
+	color=\tertiarycolor!40
+	] ([yshift=-1.14cm, xshift=4.45cm]qc.east) -- ++(-3.6, -0);
+
+	\node[anchor=west, align = center, text width= 3cm] (up) at ([xshift=-.25cm, yshift=-.6cm]loss.south) {$\vec\theta_i \to \vec\theta_{i+1}$};
+	\draw[
+	-{Triangle[width=6pt, length=6pt]},
+	line width=3pt,
+	color=\tertiarycolor!40
+	] ([yshift=-1.14cm, xshift=.9cm]qc.east) -- ++(0, .8);
+
+\end{tikzpicture}

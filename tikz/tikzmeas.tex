@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+	% box
+	\draw[color=\maincolor, line width=1pt, rounded corners=1pt]
+	(-0.45,-0.4) rectangle (0.5,0.4);
+
+	% dial arc
+	\draw[color=\maincolor, line width=1pt] (-0.28,-0.12) arc (160:20:0.35);
+	% needle
+	\draw[color=\secondarycolor, line width=1pt, -{Stealth[length=4pt]}]
+	(0,-0.18) -- (0.4,0.2);
+\end{tikzpicture}

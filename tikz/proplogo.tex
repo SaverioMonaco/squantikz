@@ -1,0 +1,42 @@
+\begin{tikzpicture}[
+	connectionb/.style={
+	->,
+	line width=4pt,
+	black,
+	opacity=1,
+	>={Triangle[length=7, width=7]}
+	},
+	connection/.style={
+	->,
+	line width=3pt,
+	\maincolor,
+	opacity=1,
+	>={Triangle[length=6, width=6]}
+	},]
+	\node (qc) at (0, 0) {
+		\scalebox{1}{
+			\begin{quantikz}[row sep={0.5cm,between origins}, wire types={n,n,n,n}]
+				\ostate & [-.25cm] \gate[4, style={fill=\secondarycolor}]{\hphantom{\, U(\vec{\theta}) \,}}\qw & \qw & \\
+				\ostate & \qw                                                                                  & \qw & \\
+				\vstate &                                                                                      &     & \\
+				\ostate & \qw                                                                                  & \qw &
+			\end{quantikz}
+		}
+	};
+	\contourlength{.2pt} % thickness
+
+	\node (O) at ([xshift=-.4cm]qc.east) {\contour{black}{\color{\maincolor}$\mathbf{O}$}};
+
+	\contourlength{1pt} % thickness
+	\node (Op1) at ([xshift=+.2cm]qc.west) {\contour{white}{\color{\maincolor}$\mathbf{O'}\boldsymbol{(\theta)}$}};
+
+	\contourlength{.2pt} % thickness
+	\node (Op) at ([xshift=+.2cm]qc.west) {\contour{black}{\color{\maincolor}$\mathbf{O'}\boldsymbol{(\theta)}$}};
+	\draw[connectionb, decorate,
+		decoration={snake, amplitude=2mm, segment length=20mm}]
+	(O) to[out=180, in=0] ([xshift=.475cm]Op);
+	\draw[connection, decorate,
+		decoration={snake, amplitude=2mm, segment length=20mm}]
+	(O) to[out=180, in=0] ([xshift=.5cm]Op);
+	\node (O) at (qc) {$U(\theta)$};
+\end{tikzpicture}

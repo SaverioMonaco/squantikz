@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+	\node at (0, 0) {\input{tikz/prop_loop}};
+
+	\draw[
+		black,
+		line width=0.8pt,
+		rounded corners=4pt
+	]
+	([xshift=0cm, yshift=-.45cm]current bounding box.south west)
+	rectangle
+	([xshift=-.5cm, yshift=.5cm]current bounding box.north east);
+
+	\node[anchor=west] at ([xshift=.25cm, yshift=-.35cm]current bounding box.north west) {\bfseries B: Pauli Propagation};
+
+\end{tikzpicture}

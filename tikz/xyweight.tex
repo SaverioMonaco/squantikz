@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+	\node (qc) at (0, 0) {
+		\begin{quantikz}[column sep=5pt, row sep={.5cm,between origins}]
+			\lstick{$|0\rangle$} & \targ{1}  & [.5cm] \gateR{Y}{9\hphantom{0}}{\maincolor} &           &                           & \qw \\
+			\lstick{$|0\rangle$} & \ctrl{-1} & \gateR{Y}{10}{\maincolor}                   & \targ{1}  & \gateR{Y}{17}{\maincolor} & \qw \\
+			\lstick{$|0\rangle$} & \ctrl{1}  & \gateR{Y}{11}{\maincolor}                   & \ctrl{-1} & \gateR{Y}{18}{\maincolor} & \qw \\
+			\lstick{$|0\rangle$} & \targ{-1} & \gateR{Y}{12}{\maincolor}                   & \ctrl{1}  & \gateR{Y}{19}{\maincolor} & \qw \\
+			\lstick{$|0\rangle$} & \targ{1}  & \gateR{Y}{13}{\maincolor}                   & \targ{-1} & \gateR{Y}{20}{\maincolor} & \qw \\
+			\lstick{$|0\rangle$} & \ctrl{-1} & \gateR{Y}{14}{\maincolor}                   & \targ{1}  & \gateR{Y}{21}{\maincolor} & \qw \\
+			\lstick{$|0\rangle$} & \ctrl{1}  & \gateR{Y}{15}{\maincolor}                   & \ctrl{-1} & \gateR{Y}{22}{\maincolor} & \qw \\
+			\lstick{$|0\rangle$} & \targ{-1} & \gateR{Y}{16}{\maincolor}                   &           &                           & \qw
+		\end{quantikz}
+	};
+
+	\fill[white, fill opacity=0.85] (-1.35, -2.25) rectangle (2.75, 2.25);
+
+	\node at (-1.05, 1.75) {\textbf{X}};
+	\node at (-1.05, 1.25) {\textbf{Z}};
+	\node at (-1.05, .75) {\textbf{Z}};
+	\node at (-1.05, .25) {\textbf{X}};
+	\node at (-1.05, -.25) {\textbf{X}};
+	\node at (-1.05, -.75) {\textbf{I}};
+	\node at (-1.05, -1.25) {\textbf{X}};
+	\node at (-1.05, -1.75) {\textbf{X}};
+\end{tikzpicture}

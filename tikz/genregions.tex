@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+	% Outer ellipse (full space)
+	\fill[gray!20] (0,0) ellipse (4.2cm and 3cm);
+	\draw[thick] (0,0) ellipse (4.2cm and 3cm);
+
+	% Inner green ellipse ("the actually useful stuff")
+	\fill[green!75!gray!70] (-.2,.4) ellipse (2.0cm and 1.1cm);
+	\draw[green!40!black, thick] (-.2,.4) ellipse (2.0cm and 1.1cm);
+	\node[align=center, font=\small] at (-.2,.4)
+	{The actually\\useful stuff};
+
+	% Provably easy (left, orange/yellow dot)
+	\fill[orange!80!yellow] (-3.5, 0) circle (0.35cm);
+	\node[align=center, font=\small] at (-2.0, -1.6)
+	{Provably easy\\distributions};
+
+	% Provably hard (right, orange/red dot)
+	\fill[orange!60!red] (3.5, 0) circle (0.35cm);
+	\node[align=center, font=\small] at (2.0, -1.6)
+	{Provably hard\\distributions};
+
+	% Arrows from labels to dots
+	\draw[->, shorten >=3pt] (-3, -1) -- (-3.4, -0.37);
+	\draw[->, shorten >=3pt] (3, -1) -- (3.4, -0.37);
+\end{tikzpicture}

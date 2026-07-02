@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+	\pgfdeclarelayer{behind}
+	\pgfsetlayers{behind,main}
+	\node (qc) at (0, 0) {
+		\scalebox{.75}{\input{tikz/qfan}}
+	};
+	\begin{pgfonlayer}{behind}
+		\draw[
+		-{Triangle[width=16pt, length=16pt]},
+		line width=12pt,
+		color=\secondarycolor
+		] ([xshift=-1cm]qc.east) -- ([xshift=0.2cm]qc.east) -- ([yshift=.75cm, xshift=0.2cm]qc.east) -- ([yshift=.75cm, xshift=-0.25cm]qc.west) -- ([xshift=-0.25cm]qc.west) -- ([xshift=.75cm]qc.west);
+	\end{pgfonlayer}
+\end{tikzpicture}

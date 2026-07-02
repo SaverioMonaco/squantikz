@@ -1,0 +1,106 @@
+\begin{tikzpicture}[
+		every node/.style={
+				circle, draw, inner sep=0pt,
+				minimum size=0.6cm,
+				font=\sffamily\small\bfseries, text=\maincolor!60,
+			},
+		% unused qubit
+		lightnode/.style={fill=\maincolor!20, draw=\maincolor!50, line width=0.8pt},
+		% active qubit
+		node/.style={fill=\maincolor!80, draw=\maincolor, line width=0.8pt, text=white},
+		edge/.style={draw=\maincolor!30, line width=5pt},
+	]
+
+	% spacing
+	\def\dx{0.8}
+	\def\dy{-0.8}
+
+	% --- Draw edges first (so nodes appear on top) ---
+	% Horizontal edges
+	\foreach \row in {0,...,11}{
+			\foreach \col in {0,...,8}{
+					\pgfmathtruncatemacro{\a}{\row*10 + \col}
+					\pgfmathtruncatemacro{\b}{\row*10 + \col + 1}
+					\draw[edge] (\col*\dx, \row*\dy) -- (\col*\dx+\dx, \row*\dy);
+				}
+		}
+	% Vertical edges
+	\foreach \row in {0,...,10}{
+			\foreach \col in {0,...,9}{
+					\pgfmathtruncatemacro{\a}{\row*10 + \col}
+					\pgfmathtruncatemacro{\b}{\row*10 + \col + 10}
+					\draw[edge] (\col*\dx, \row*\dy) -- (\col*\dx, \row*\dy+\dy);
+				}
+		}
+
+	% --- Draw nodes ---
+	% Default: all blue; a few highlighted purple/lightpurple/gray from the image
+	% Special nodes (approximate from image): 29(gray), 38(gray), 44(lightpur), 53(pur), 58(pur), 59(gray), 66(pur), 79(gray), 87(pur), 97(pur)
+
+	\foreach \row in {0,...,11}{
+			\foreach \col in {0,...,9}{
+					\pgfmathtruncatemacro{\n}{\row*10 + \col}
+					\pgfmathsetmacro{\x}{\col*\dx}
+					\pgfmathsetmacro{\y}{\row*\dy}
+					% Assign style based on node index
+					\ifnum\n=8 \node[lightnode] at (\x,\y) {\n};
+					\else\ifnum\n=9 \node[lightnode] at (\x,\y) {\n};
+						\else\ifnum\n=18 \node[lightnode] at (\x,\y) {\n};
+							\else\ifnum\n=19 \node[lightnode] at (\x,\y) {\n};
+								\else\ifnum\n=28 \node[lightnode] at (\x,\y) {\n};
+									\else\ifnum\n=29 \node[lightnode] at (\x,\y) {\n};
+										\else\ifnum\n=38 \node[lightnode] at (\x,\y) {\n};
+											\else\ifnum\n=39 \node[lightnode] at (\x,\y) {\n};
+												\else\ifnum\n=48 \node[lightnode] at (\x,\y) {\n};
+													\else\ifnum\n=49 \node[lightnode] at (\x,\y) {\n};
+														\else\ifnum\n=58 \node[lightnode] at (\x,\y) {\n};
+															\else\ifnum\n=59 \node[lightnode] at (\x,\y) {\n};
+																\else\ifnum\n=68 \node[lightnode] at (\x,\y) {\n};
+																	\else\ifnum\n=69 \node[lightnode] at (\x,\y) {\n};
+																		\else\ifnum\n=78 \node[lightnode] at (\x,\y) {\n};
+																			\else\ifnum\n=79 \node[lightnode] at (\x,\y) {\n};
+																				\else\ifnum\n=80 \node[lightnode] at (\x,\y) {\n};
+																					\else\ifnum\n=81 \node[lightnode] at (\x,\y) {\n};
+																						\else\ifnum\n=82 \node[lightnode] at (\x,\y) {\n};
+																							\else\ifnum\n=83 \node[lightnode] at (\x,\y) {\n};
+																								\else\ifnum\n=84 \node[lightnode] at (\x,\y) {\n};
+																									\else\ifnum\n=85 \node[lightnode] at (\x,\y) {\n};
+																										\else\ifnum\n=86 \node[lightnode] at (\x,\y) {\n};
+																											\else\ifnum\n=87 \node[lightnode] at (\x,\y) {\n};
+																												\else\ifnum\n=88 \node[lightnode] at (\x,\y) {\n};
+																													\else\ifnum\n=89 \node[lightnode] at (\x,\y) {\n};
+																														\else\ifnum\n=90 \node[lightnode] at (\x,\y) {\n};
+																															\else\ifnum\n=91 \node[lightnode] at (\x,\y) {\n};
+																																\else\ifnum\n=92 \node[lightnode] at (\x,\y) {\n};
+																																	\else\ifnum\n=93 \node[lightnode] at (\x,\y) {\n};
+																																		\else\ifnum\n=94 \node[lightnode] at (\x,\y) {\n};
+																																			\else\ifnum\n=95 \node[lightnode] at (\x,\y) {\n};
+																																				\else\ifnum\n=96 \node[lightnode] at (\x,\y) {\n};
+																																					\else\ifnum\n=97 \node[lightnode] at (\x,\y) {\n};
+																																						\else\ifnum\n=98 \node[lightnode] at (\x,\y) {\n};
+																																							\else\ifnum\n=99 \node[lightnode] at (\x,\y) {\n};
+																																								\else\ifnum\n=100 \node[lightnode] at (\x,\y) {\n};
+																																									\else\ifnum\n=101 \node[lightnode] at (\x,\y) {\n};
+																																										\else\ifnum\n=102 \node[lightnode] at (\x,\y) {\n};
+																																											\else\ifnum\n=103 \node[lightnode] at (\x,\y) {\n};
+																																												\else\ifnum\n=104 \node[lightnode] at (\x,\y) {\n};
+																																													\else\ifnum\n=105 \node[lightnode] at (\x,\y) {\n};
+																																														\else\ifnum\n=106 \node[lightnode] at (\x,\y) {\n};
+																																															\else\ifnum\n=107 \node[lightnode] at (\x,\y) {\n};
+																																																\else\ifnum\n=108 \node[lightnode] at (\x,\y) {\n};
+																																																	\else\ifnum\n=109 \node[lightnode] at (\x,\y) {\n};
+																																																		\else\ifnum\n=110 \node[lightnode] at (\x,\y) {\n};
+																																																			\else\ifnum\n=111 \node[lightnode] at (\x,\y) {\n};
+																																																				\else\ifnum\n=112 \node[lightnode] at (\x,\y) {\n};
+																																																					\else\ifnum\n=113 \node[lightnode] at (\x,\y) {\n};
+																																																						\else\ifnum\n=114 \node[lightnode] at (\x,\y) {\n};
+																																																							\else\ifnum\n=115 \node[lightnode] at (\x,\y) {\n};
+																																																								\else\ifnum\n=116 \node[lightnode] at (\x,\y) {\n};
+																																																									\else\ifnum\n=117 \node[lightnode] at (\x,\y) {\n};
+																																																										\else\ifnum\n=118 \node[lightnode] at (\x,\y) {\n};
+																																																											\else\ifnum\n=119 \node[lightnode] at (\x,\y) {\n};
+																																																												\else \node[node] at (\x,\y) {\n};
+																																																												\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+				}
+		}
+\end{tikzpicture}

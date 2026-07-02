@@ -1,0 +1,20 @@
+\begin{tikzpicture}[
+	connection/.style={
+	->,
+	line width=2pt,
+	\maincolor,
+	opacity=1,
+	>={Triangle[length=4, width=4]}}]
+	\node (qc) at (0, 0) {
+		\scalebox{1}{
+			\begin{quantikz}[column sep=0.2cm, row sep={0.6cm,between origins}, wire types={q,q}]
+				\ostate & \gate{\!RX\!(\theta_0)\!} & \gate{\!RY\!(\theta_2)\!} & \ctrl{1}  & \gate{\!RY\!(\theta_4)\!} & \qw \rstick{$\langle Z\rangle$} \\
+				\ostate & \gate{\!RX\!(\theta_1)\!} & \gate{\!RY\!(\theta_3)\!} & \targ{-1} & \gate{\!RY\!(\theta_5)\!} & \qw
+			\end{quantikz}
+		}
+	};
+
+	\node[anchor=west] (eq) at ([xshift=.5cm]qc.east) {$\langle Z\otimes I\rangle(\vec{\theta}) = \cos(\theta_0)\cos(\theta_2)\cos(\theta_4) - \sin(\theta_2)\sin(\theta_3)\sin(\theta_4)$};
+
+	\draw[connection] (qc.east) -- (eq);
+\end{tikzpicture}

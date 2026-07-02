@@ -1,0 +1,15 @@
+\newcommand{\clicgroup}{\gategroup[8,steps=10 ,style={dashed,rounded
+				corners,fill=\maincolor!10},background,label style={label position=above,anchor=north,yshift=+0.3cm}]{}}
+\newcommand{\encgroup}{\gategroup[8,steps=2 ,style={dashed,rounded
+				corners,fill=\secondarycolor!10},background,label style={label position=above,anchor=north,yshift=+0.3cm}]{}}
+
+\begin{quantikz}[column sep=5pt, row sep={18pt,between origins}]
+	\qw\encgroup & \gatexR{Y}{0}{\secondarycolor} & [.3cm] \qw\clicgroup & \qw                      & \qw                      & \qw      & \targ{2}  & \qw       & \qw       & \qw       & \qw                      & \gateR{Y}{3}{\maincolor}  \\
+	\qw          & \gatexR{Y}{1}{\secondarycolor} & \qw                  & \qw                      & \qw                      & \qw      & \qw       & \targ{1}  & \qw       & \qw       & \qw                      & \gateR{Y}{4}{\maincolor}  \\
+	\qw          & \gatexR{Y}{2}{\secondarycolor} & \qw                  & \gateR{X}{0}{\maincolor} & \gateR{Y}{1}{\maincolor} & \ctrl{4} & \ctrl{-2} & \ctrl{-1} & \ctrl{1}  & \ctrl{2}  & \gateR{X}{2}{\maincolor} & \gateR{Y}{5}{\maincolor}  \\
+	\qw          & \gatexR{Y}{3}{\secondarycolor} & \qw                  & \qw                      & \qw                      & \qw      & \qw       & \qw       & \targ{-1} & \qw       & \qw                      & \gateR{Y}{6}{\maincolor}  \\
+	\qw          & \gatexR{Y}{4}{\secondarycolor} & \qw                  & \qw                      & \qw                      & \qw      & \qw       & \qw       & \qw       & \targ{-1} & \qw                      & \gateR{Y}{7}{\maincolor}  \\
+	\qw          & \gatexR{Y}{5}{\secondarycolor} & \qw                  & \qw                      & \qw                      & \qw      & \targ{1}  & \qw       & \qw       & \qw       & \qw                      & \gateR{Y}{8}{\maincolor}  \\
+	\qw          & \gatexR{Y}{6}{\secondarycolor} & \qw                  & \qw                      & \qw                      & \targ{2} & \ctrl{-1} & \ctrl{1}  & \qw       & \qw       & \qw                      & \gateR{Y}{9}{\maincolor}  \\
+	\qw          & \gatexR{Y}{7}{\secondarycolor} & \qw                  & \qw                      & \qw                      & \qw      & \qw       & \targ{-1} & \qw       & \qw       & \qw                      & \gateR{Y}{10}{\maincolor}
+\end{quantikz}

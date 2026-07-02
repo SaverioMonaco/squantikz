@@ -1,0 +1,8 @@
+\begin{quantikz}[row sep={0.6cm,between origins}, wire types={q,q,q,n,q}]
+	\lstick{$\ket{0}$} & \gate{RY} \gategroup[6,steps=7,style={dashed}, label style={label position=below,anchor=north,yshift=-0.2cm}]{} & \ctrl{1} & \qw      & \cdots & \qw     & \qw      & \targ{}   & \\
+	\lstick{$\ket{0}$} & \gate{RY}                                                                                                       & \targ{1} & \ctrl{1} & \cdots & \qw     & \qw      & \qw       & \\
+	\lstick{$\ket{0}$} & \gate{RY}                                                                                                       & \ctrl{0} & \targ{1} & \cdots & \qw     & \qw      & \qw       & \\
+	\lstick{\,\vdots}  & \gate{RY}                                                                                                       & \vdots   & \vdots   &        & \vdots  & \vdots   & \vdots    & \\
+	\lstick{$\ket{0}$} & \gate{RY}                                                                                                       & \qw      & \qw      & \cdots & \targ{} & \ctrl{1} & \qw       & \\
+	\lstick{$\ket{0}$} & \gate{RY}                                                                                                       & \qw      & \qw      & \cdots & \qw     & \targ{}  & \ctrl{-5} &
+\end{quantikz}

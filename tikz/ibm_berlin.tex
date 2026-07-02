@@ -1,0 +1,47 @@
+\begin{tikzpicture}[
+		every node/.style={
+				circle, draw, inner sep=0pt,
+				minimum size=0.6cm,
+				font=\sffamily\small\bfseries, text=\maincolor!60,
+			},
+		% unused qubit
+		lightnode/.style={fill=\maincolor!20, draw=\maincolor!50, line width=0.8pt},
+		% active qubit
+		node/.style={fill=\maincolor!80, draw=\maincolor, line width=0.8pt, text=white},
+		edge/.style={draw=\maincolor!30, line width=5pt},
+	]
+
+	% spacing
+	\def\dx{0.8}
+	\def\dy{-0.8}
+	% --- Draw edges first (so nodes appear on top) ---
+	% Horizontal edges
+	\foreach \row in {0,...,11}{
+			\foreach \col in {0,...,8}{
+					\pgfmathtruncatemacro{\a}{\row*10 + \col}
+					\pgfmathtruncatemacro{\b}{\row*10 + \col + 1}
+					\draw[edge] (\col*\dx, \row*\dy) -- (\col*\dx+\dx, \row*\dy);
+				}
+		}
+	% Vertical edges
+	\foreach \row in {0,...,10}{
+			\foreach \col in {0,...,9}{
+					\pgfmathtruncatemacro{\a}{\row*10 + \col}
+					\pgfmathtruncatemacro{\b}{\row*10 + \col + 10}
+					\draw[edge] (\col*\dx, \row*\dy) -- (\col*\dx, \row*\dy+\dy);
+				}
+		}
+
+	% --- Draw nodes ---
+	% Default: all blue; a few highlighted purple/lightpurple/gray from the image
+	% Special nodes (approximate from image): 29(gray), 38(gray), 44(lightpur), 53(pur), 58(pur), 59(gray), 66(pur), 79(gray), 87(pur), 97(pur)
+
+	\foreach \row in {0,...,11}{
+			\foreach \col in {0,...,9}{
+					\pgfmathtruncatemacro{\n}{\row*10 + \col}
+					\pgfmathsetmacro{\x}{\col*\dx}
+					\pgfmathsetmacro{\y}{\row*\dy}
+					\node[node] at (\x,\y) {\n};
+				}
+		}
+\end{tikzpicture}

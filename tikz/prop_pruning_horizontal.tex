@@ -1,0 +1,72 @@
+\begin{tikzpicture}[
+	connection/.style={
+	->,
+	line width=1pt,
+	\secondarycolor,
+	>={Triangle[length=4,width=3]}
+	},
+	grayed/.style={opacity=0.5},
+	connectiongrayed/.style={
+	->,
+	line width=1pt,
+	\secondarycolor!60!white,
+	>={Triangle[length=4,width=3]}
+	},
+	]
+	\node at (0, 0) {\input{tikz/Us}};
+
+	% White semi-transparent overlay
+	\fill[white, fill opacity=0.85] (-3, -1.5) rectangle (3, 1.5);
+
+	\def\xi{2}
+	\def\xii{1}
+	\def\xiii{0}
+	\def\xiiii{-1}
+	\def\xiiiii{-2.2}
+
+	\def\yi{.9}
+	\def\yii{.3}
+	\def\yiii{-.3}
+	\def\yiiii{-.9}
+
+	\node[anchor=west] (p11) at (\xi, \yi) {$Z$};
+
+	\node[anchor=west] (p21) at (\xii, \yi) {$Z$};
+	\node[grayed, anchor=west] (p22) at (\xii, \yii) {$X$};
+
+	\draw[connectiongrayed] (p11) -- (p22);
+	\draw[connection] (p11) -- (p21);
+
+	\node[anchor=west] (p31) at (\xiii, \yi) {$ZZ$};
+	\node[grayed, anchor=west] (p32) at (\xiii, \yii) {$XZ$};
+
+	\draw[connection] (p21) -- (p31);
+	\draw[connectiongrayed] (p22) -- (p32);
+
+	\node[anchor=west] (p41) at (\xiiii, \yi) {$ZZ$};
+	\node[anchor=west] (p42) at (\xiiii, \yii) {$ZY$};
+	\node[grayed, anchor=west] (p43) at (\xiiii, \yiii) {$XZ$};
+	\node[grayed, anchor=west] (p44) at (\xiiii, \yiiii) {$XY$};
+
+	\draw[connection] (p31) -- (p41);
+	\draw[connection] (p31) -- (p42);
+	\draw[connectiongrayed] (p32) -- (p43);
+	\draw[connectiongrayed] (p32) -- (p44);
+
+	\node[anchor=west] (p51) at (\xiiiii, \yi) {$ZZZ$};
+	\node[anchor=west] (p52) at (\xiiiii, \yii) {$ZYZ$};
+	\node[grayed, anchor=west] (p53) at (\xiiiii, \yiii) {$XZZ$};
+	\node[grayed, anchor=west] (p54) at (\xiiiii, \yiiii) {$XYZ$};
+
+	\draw[connection] (p41) -- (p51);
+	\draw[connection] (p42) -- (p52);
+	\draw[connectiongrayed] (p43) -- (p53);
+	\draw[connectiongrayed] (p44) -- (p54);
+
+	\node[rotate=160] (scissors) at ([xshift=0.1cm, yshift=-.45cm]p11) {\faScissors};
+	\draw[
+		\tertiarycolor,
+		dashed,
+		line width=1pt,
+	] (scissors) -- ++(-.75,+.3);
+\end{tikzpicture}

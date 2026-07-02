@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+	\node (qc) at (0, 0) {
+		\scalebox{.75}{\input{tikz/qcultrasimple}}
+	};
+	\node[anchor=west, align = left, text width= 3cm] (loss) at ([xshift=.5cm]qc.east) {Evaluate $\partial_\theta\mathcal{L}(\vec{\theta})$};
+	\node[anchor=west, align = center, text width= 3cm] (up) at ([xshift=-3.5cm, yshift=-1.15cm]loss.south) {$\vec\theta_i \to \vec\theta_{i+1}$};
+
+	\draw[
+	-{Triangle[width=6pt, length=6pt]},
+	line width=3pt,
+	color=\tertiarycolor!40
+	] ([xshift=-.2cm]qc.east) -- (loss);
+
+	\draw[
+	-{Triangle[width=6pt, length=6pt]},
+	line width=3pt,
+	color=\tertiarycolor!40
+	] (loss) -- ([yshift=-1.5cm]loss.south) -- ([yshift=-.65cm]qc.south) -- ([yshift=-0cm]qc.south);
+
+	\node[anchor=west, align = center, text width= 3cm, rotate=-10, color=\secondarycolor] (hard) at ([xshift=-.5cm, yshift=1cm]loss.north) {Expensive!};
+
+	\draw[
+	-{Triangle[width=6pt, length=6pt]},
+	line width=3pt,
+	color=\secondarycolor
+	] (hard) -- (loss);
+
+\end{tikzpicture}

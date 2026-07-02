@@ -7,12 +7,14 @@
 \RequirePackage{tikz}
 \RequirePackage{quantikz}
 \RequirePackage{blochsphere}
-\usetikzlibrary{arrows.meta, positioning, calc, 3d}
+\usetikzlibrary{arrows.meta, positioning, calc, 3d, decorations.pathmorphing}
 
 % -----------------------------
 % Other
 % -----------------------------
 \RequirePackage{fp}
+\RequirePackage{contour}
+\RequirePackage{fontawesome}
 
 % -----------------------------
 % DESY COLORS
@@ -20,6 +22,9 @@
 \definecolor{desyorange}{RGB}{243, 142, 0} % #F28E00
 \definecolor{desyblue}{RGB}{0, 166, 235}   % #00A6EB
 \definecolor{desygray}{RGB}{119, 119, 119} % #777777
+\definecolor{desyorangeneg}{RGB}{12, 113, 255}
+\definecolor{desyblueneg}{RGB}{255, 89, 20}
+\definecolor{desygrayneg}{RGB}{136, 136, 136}
 
 % -----------------------------
 % OTHER COLORS
